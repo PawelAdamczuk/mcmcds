@@ -1,6 +1,6 @@
 ﻿namespace mcmcds
 {
-    partial class Form1
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.thinClientLogin = new System.Windows.Forms.Button();
             this.thickClientLogin = new System.Windows.Forms.Button();
             this.comboBoxAddress = new System.Windows.Forms.ComboBox();
@@ -115,7 +116,7 @@
             this.labelPassword.Text = "Password";
             this.labelPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form1
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,8 +129,9 @@
             this.Controls.Add(this.comboBoxAddress);
             this.Controls.Add(this.thickClientLogin);
             this.Controls.Add(this.thinClientLogin);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FormLogin";
+            this.Text = "DataBananaManagementSystem";
             this.ResumeLayout(false);
             this.PerformLayout();
 
