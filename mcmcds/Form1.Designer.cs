@@ -35,8 +35,10 @@
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // thinClientLogin
@@ -56,12 +58,13 @@
             this.thickClientLogin.TabIndex = 1;
             this.thickClientLogin.Text = "Administrator login";
             this.thickClientLogin.UseVisualStyleBackColor = true;
+            this.thickClientLogin.Click += new System.EventHandler(this.thickClientLogin_Click);
             // 
             // comboBoxAddress
             // 
             this.comboBoxAddress.FormattingEnabled = true;
             this.comboBoxAddress.Items.AddRange(new object[] {
-            "196.69.69.123",
+            "196.69.69.12",
             "127.0.0.1"});
             this.comboBoxAddress.Location = new System.Drawing.Point(12, 35);
             this.comboBoxAddress.Name = "comboBoxAddress";
@@ -97,15 +100,15 @@
             this.textBoxUsername.Text = "bananek";
             this.textBoxUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox1
+            // textBoxPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 134);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(280, 20);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "bananek1";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.textBoxPassword.Location = new System.Drawing.Point(12, 134);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(280, 20);
+            this.textBoxPassword.TabIndex = 8;
+            this.textBoxPassword.Text = "bananek1";
+            this.textBoxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // labelPassword
             // 
@@ -116,12 +119,18 @@
             this.labelPassword.Text = "Password";
             this.labelPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 192);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.labelUsername);
@@ -132,6 +141,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormLogin";
             this.Text = "DataBananaManagementSystem";
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,8 +155,9 @@
         private System.Windows.Forms.Label labelAddress;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.TextBox textBoxUsername;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelPassword;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 

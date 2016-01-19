@@ -26,5 +26,17 @@ namespace mcmcds
         {
 
         }
+
+        private void thickClientLogin_Click(object sender, EventArgs e)
+        {
+            FormThickClient thickClient = new FormThickClient(comboBoxAddress.Text, textBoxUsername.Text, textBoxPassword.Text);
+            if(thickClient.connected)
+                thickClient.Show();
+        }
+
+        private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
+        {
+
+        }
     }
 }
