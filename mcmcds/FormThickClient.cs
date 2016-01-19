@@ -24,7 +24,7 @@ namespace mcmcds
 
         public FormThickClient(string _address, string _login, string _password)
         {
-            connectionString = String.Format("Data Source={0},1433;Network Library = DBMSSOCN;Initial Catalog = DBanana;User ID = {1}; Password = {2}", _address, _login, _password);
+            connectionString = String.Format("Data Source={0},1433;Network Library = DBMSSOCN;Initial Catalog = DBANANA;User ID = {1}; Password = {2}", _address, _login, _password);
             conn = new SqlConnection(connectionString);
             try
             {
@@ -33,7 +33,7 @@ namespace mcmcds
             }
             catch(Exception e)
             {
-                MessageBox.Show("Connection failed!\n" + connectionString);
+                MessageBox.Show("Connection failed!\n" + connectionString + "\n" + e.Message);
                 connected = false;
             }
             InitializeComponent();
