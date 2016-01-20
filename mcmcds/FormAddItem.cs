@@ -62,7 +62,7 @@ namespace mcmcds
                 
                 try
                 {
-                    int priceInt = (int)(Double.Parse(price.ToString()));
+                    int priceInt = (int)(Double.Parse(price.ToString())*100);
                     conn.Open();
                     string command = "INSERT into ITEMS (name, price, description) " +
                                      $"VALUES ('{textBox_name.Text}', '{priceInt}', '{textBox_description.Text}');";

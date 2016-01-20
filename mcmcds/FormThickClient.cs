@@ -59,6 +59,10 @@ namespace mcmcds
                     f = new FormAddItem(connectionString);
                     inputValid = true;
                     break;
+                case "Meal":
+                    f = new FormAddMeal(connectionString);
+                    inputValid = true;
+                    break;
                 case "Ingredient":
                     //Not implemented
                     break;
