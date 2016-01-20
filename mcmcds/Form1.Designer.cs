@@ -70,6 +70,7 @@
             this.comboBoxAddress.Name = "comboBoxAddress";
             this.comboBoxAddress.Size = new System.Drawing.Size(280, 21);
             this.comboBoxAddress.TabIndex = 2;
+            this.comboBoxAddress.Text = "196.69.69.12";
             this.comboBoxAddress.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // labelAddress
@@ -97,7 +98,7 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(280, 20);
             this.textBoxUsername.TabIndex = 6;
-            this.textBoxUsername.Text = "bananek";
+            this.textBoxUsername.Text = "sa";
             this.textBoxUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxPassword

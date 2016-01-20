@@ -83,7 +83,7 @@ namespace mcmcds
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(12, 207);
+            this.addButton.Location = new System.Drawing.Point(12, 227);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(77, 23);
             this.addButton.TabIndex = 5;
@@ -139,7 +139,7 @@ namespace mcmcds
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(195, 207);
+            this.cancelButton.Location = new System.Drawing.Point(195, 227);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(77, 23);
             this.cancelButton.TabIndex = 12;
@@ -151,7 +151,7 @@ namespace mcmcds
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 239);
+            this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.loginBox);
@@ -166,6 +166,7 @@ namespace mcmcds
             this.Controls.Add(this.NameBox);
             this.Name = "FormAddEmployee";
             this.Text = "FormAddEmployee";
+            this.Load += new System.EventHandler(this.FormAddEmployee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

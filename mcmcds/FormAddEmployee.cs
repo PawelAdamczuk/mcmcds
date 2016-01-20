@@ -25,29 +25,7 @@ namespace mcmcds
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!isValid())
-            {
-                MessageBox.Show("Input contains illegal characters.");
-                return;
-            }
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string command = "INSERT into EMPLOYEES (name, wage, position, login, password_hash) " +
-                                 $"VALUES ('{NameBox.Text}', '{wageBox.Text}', '{positionBox.Text}', '{loginBox.Text}', '{passwordBox.Text.GetHashCode()}');";
-                SqlCommand insertQuery = new SqlCommand(command,conn);
-                try
-                {
-                    insertQuery.ExecuteNonQuery();
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show("Error while inserting: "+exception);
-                    return;
-                }
-                MessageBox.Show("Added employee.");
-            }
+           
         }
 
         private bool isValid()
@@ -68,6 +46,11 @@ namespace mcmcds
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormAddEmployee_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
