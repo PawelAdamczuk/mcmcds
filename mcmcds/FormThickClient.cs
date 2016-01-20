@@ -30,6 +30,7 @@ namespace mcmcds
             {
                 conn.Open();
                 connected = true;
+
             }
             catch(Exception e)
             {
