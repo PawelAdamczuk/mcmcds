@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace mcmcds
 {
-    
+
     public partial class FormAddEmployee : Form
     {
         private string connectionString;
@@ -20,39 +20,51 @@ namespace mcmcds
         {
             this.connectionString = connectionString;
             InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (!isValid())
+            {
+                MessageBox.Show("Input contains illegal characters.");
+                return;
+            }
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                //string command = "INSERT into EMPLOYEES (name, wage, position, login, password) "+
-                  //  "VALUES ('"+NameBox.Text+;
-
+                conn.Open();
+                string command = "INSERT into EMPLOYEES (name, wage, position, login, password_hash) " +
+                                 $"VALUES ('{NameBox.Text}', '{wageBox.Text}', '{positionBox.Text}', '{loginBox.Text}', '{passwordBox.Text.GetHashCode()}');";
+                SqlCommand insertQuery = new SqlCommand(command,conn);
+                try
+                {
+                    insertQuery.ExecuteNonQuery();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Error while inserting: "+exception);
+                    return;
+                }
+                MessageBox.Show("Added employee.");
             }
         }
 
         private bool isValid()
         {
-
+            if (!Utilities.TextValid(NameBox.Text))
+                return false;
+            if (!Utilities.TextValid(wageBox.Text))
+                return false;
+            if (!Utilities.TextValid(positionBox.Text))
+                return false;
+            if (!Utilities.TextValid((loginBox.Text)))
+                return false;
+            if (!Utilities.TextValid(passwordBox.Text))
+                return false;
             return true;
         }
 
-        private bool textValid(string text)
-        {
-            if (text.Contains(";"))
-                return false;
-            if (text.Contains("'"))
-                return false;
-            if (text.Contains("--"))
-                return false;
-
-            return true;
-
-        }
-       
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();

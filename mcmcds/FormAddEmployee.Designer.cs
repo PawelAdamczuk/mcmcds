@@ -43,7 +43,7 @@ namespace mcmcds
             this.LoginLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.loginBox = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.passwordBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -130,12 +130,12 @@ namespace mcmcds
             this.loginBox.Size = new System.Drawing.Size(260, 20);
             this.loginBox.TabIndex = 10;
             // 
-            // textBox5
+            // passwordBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 181);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(260, 20);
-            this.textBox5.TabIndex = 11;
+            this.passwordBox.Location = new System.Drawing.Point(12, 181);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.Size = new System.Drawing.Size(260, 20);
+            this.passwordBox.TabIndex = 11;
             // 
             // cancelButton
             // 
@@ -153,7 +153,7 @@ namespace mcmcds
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 239);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.loginBox);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.LoginLabel);
@@ -183,7 +183,7 @@ namespace mcmcds
         private System.Windows.Forms.Label LoginLabel;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.TextBox loginBox;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.Button cancelButton;
     }
 }

@@ -31,7 +31,7 @@ namespace mcmcds
                 conn.Open();
                 connected = true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Connection failed!\n" + connectionString + "\n" + e.Message);
                 connected = false;
@@ -46,11 +46,13 @@ namespace mcmcds
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            Form f;
-            switch (comboBox1.SelectedText)
+            Form f = null;
+            bool inputValid = false;
+            switch (comboBox1.Text)
             {
                 case "Employee":
                     f = new FormAddEmployee(connectionString);
+                    inputValid = true;
                     break;
                 case "Ingredient":
                     //Not implemented
@@ -58,6 +60,10 @@ namespace mcmcds
                 default:
                     MessageBox.Show("Input not valid.");
                     break;
+            }
+            if (inputValid)
+            {
+                f.Show();
             }
         }
     }
