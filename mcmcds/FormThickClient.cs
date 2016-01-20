@@ -40,5 +40,26 @@ namespace mcmcds
             InitializeComponent();
         }
 
+        private void AddPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            Form f;
+            switch (comboBox1.SelectedText)
+            {
+                case "Employee":
+                    f = new FormAddEmployee(connectionString);
+                    break;
+                case "Ingredient":
+                    //Not implemented
+                    break;
+                default:
+                    MessageBox.Show("Input not valid.");
+                    break;
+            }
+        }
     }
 }
