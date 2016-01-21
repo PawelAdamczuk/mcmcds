@@ -66,10 +66,11 @@ namespace mcmcds
             try
             {
                 listView_mealItems.SelectedItems[0].Remove();
-            }
+                }
             catch (Exception exception)
             {
-
+                MessageBox.Show("Idiot...");
+                MessageBox.Show("There's nothing to delete.");
             }
         }
     }
