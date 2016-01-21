@@ -17,6 +17,15 @@ namespace mcmcds
         private string connectionString;
         private List<string> itemList;
 
+        private bool isValid()
+        {
+            if (!Utilities.TextValid(textBox_mealName.Text))
+                return false;
+            if (!Utilities.TextValid(textBox_mealPrice.Text))
+                return false;
+            return true;
+        }
+
         public FormAddMeal(String _connectionString)
         {
             this.connectionString = _connectionString;

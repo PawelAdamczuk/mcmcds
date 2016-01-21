@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView_items = new System.Windows.Forms.DataGridView();
             this.label_itemList = new System.Windows.Forms.Label();
             this.button_AddItem = new System.Windows.Forms.Button();
             this.listView_mealItems = new System.Windows.Forms.ListView();
             this.button_remove = new System.Windows.Forms.Button();
+            this.label_mealName = new System.Windows.Forms.Label();
+            this.textBox_mealName = new System.Windows.Forms.TextBox();
+            this.label_mealPrice = new System.Windows.Forms.Label();
+            this.textBox_mealPrice = new System.Windows.Forms.TextBox();
+            this.label_dollar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_items)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,8 +48,8 @@
             this.dataGridView_items.AllowUserToDeleteRows = false;
             this.dataGridView_items.AllowUserToResizeColumns = false;
             this.dataGridView_items.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_items.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_items.Location = new System.Drawing.Point(12, 25);
@@ -94,11 +99,58 @@
             this.button_remove.UseVisualStyleBackColor = true;
             this.button_remove.Click += new System.EventHandler(this.button_remove_Click);
             // 
+            // label_mealName
+            // 
+            this.label_mealName.AutoSize = true;
+            this.label_mealName.Location = new System.Drawing.Point(12, 211);
+            this.label_mealName.Name = "label_mealName";
+            this.label_mealName.Size = new System.Drawing.Size(59, 13);
+            this.label_mealName.TabIndex = 5;
+            this.label_mealName.Text = "Meal name";
+            // 
+            // textBox_mealName
+            // 
+            this.textBox_mealName.Location = new System.Drawing.Point(15, 228);
+            this.textBox_mealName.Name = "textBox_mealName";
+            this.textBox_mealName.Size = new System.Drawing.Size(182, 20);
+            this.textBox_mealName.TabIndex = 6;
+            // 
+            // label_mealPrice
+            // 
+            this.label_mealPrice.AutoSize = true;
+            this.label_mealPrice.Location = new System.Drawing.Point(12, 251);
+            this.label_mealPrice.Name = "label_mealPrice";
+            this.label_mealPrice.Size = new System.Drawing.Size(59, 13);
+            this.label_mealPrice.TabIndex = 7;
+            this.label_mealPrice.Text = "Meal name";
+            // 
+            // textBox_mealPrice
+            // 
+            this.textBox_mealPrice.Location = new System.Drawing.Point(15, 267);
+            this.textBox_mealPrice.Name = "textBox_mealPrice";
+            this.textBox_mealPrice.Size = new System.Drawing.Size(77, 20);
+            this.textBox_mealPrice.TabIndex = 8;
+            // 
+            // label_dollar
+            // 
+            this.label_dollar.AutoSize = true;
+            this.label_dollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_dollar.Location = new System.Drawing.Point(98, 267);
+            this.label_dollar.Name = "label_dollar";
+            this.label_dollar.Size = new System.Drawing.Size(16, 18);
+            this.label_dollar.TabIndex = 9;
+            this.label_dollar.Text = "$";
+            // 
             // FormAddMeal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 462);
+            this.Controls.Add(this.label_dollar);
+            this.Controls.Add(this.textBox_mealPrice);
+            this.Controls.Add(this.label_mealPrice);
+            this.Controls.Add(this.textBox_mealName);
+            this.Controls.Add(this.label_mealName);
             this.Controls.Add(this.button_remove);
             this.Controls.Add(this.listView_mealItems);
             this.Controls.Add(this.button_AddItem);
@@ -120,5 +172,10 @@
         private System.Windows.Forms.Button button_AddItem;
         private System.Windows.Forms.ListView listView_mealItems;
         private System.Windows.Forms.Button button_remove;
+        private System.Windows.Forms.Label label_mealName;
+        private System.Windows.Forms.TextBox textBox_mealName;
+        private System.Windows.Forms.Label label_mealPrice;
+        private System.Windows.Forms.TextBox textBox_mealPrice;
+        private System.Windows.Forms.Label label_dollar;
     }
 }
