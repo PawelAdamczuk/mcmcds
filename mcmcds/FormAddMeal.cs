@@ -16,7 +16,7 @@ namespace mcmcds
     {
         private string connectionString;
         private List<string> itemList;
-        private double priceSum;
+        private int priceSum;
 
         private bool isValid()
         {
@@ -62,10 +62,9 @@ namespace mcmcds
         {
             listView_mealItems.Items.Add(dataGridView_items.SelectedRows[0].Cells["name"].Value.ToString());
             //MessageBox.Show(dataGridView_items.SelectedRows[0].Cells["price"].ToString());
-            priceSum += ((double)Utilities.PriceField(dataGridView_items.SelectedRows[0].Cells["price"].Value.ToString()))/100;
-            if (priceSum < 0.1)
-                priceSum = 0;
-            textBox_calculatedPrice.Text = priceSum.ToString();
+            priceSum += (Utilities.PriceField(dataGridView_items.SelectedRows[0].Cells["price"].Value.ToString()));
+
+            textBox_calculatedPrice.Text = (((double)priceSum)/100).ToString();
         }
 
         private void button_remove_Click(object sender, EventArgs e)
@@ -74,12 +73,11 @@ namespace mcmcds
             {
                 for(int i = 0; i < dataGridView_items.RowCount; ++i){
                     if(dataGridView_items.Rows[i].Cells["name"].Value.ToString().Equals(listView_mealItems.SelectedItems[0].Text)) {
-                        priceSum -= ((double)Utilities.PriceField(dataGridView_items.Rows[i].Cells["price"].Value.ToString())) / 100;
+                        priceSum -= (Utilities.PriceField(dataGridView_items.Rows[i].Cells["price"].Value.ToString()));
                     }
                 }
-                if (priceSum < 0.1)
-                    priceSum = 0;
-                textBox_calculatedPrice.Text = priceSum.ToString();
+
+                textBox_calculatedPrice.Text = (((double)priceSum) / 100).ToString();
                 listView_mealItems.SelectedItems[0].Remove();
 
                 
