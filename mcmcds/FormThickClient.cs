@@ -63,8 +63,9 @@ namespace mcmcds
                     f = new FormAddMeal(connectionString);
                     inputValid = true;
                     break;
-                case "Ingredient":
-                    //Not implemented
+                case "Order":
+                    f = new FormAddOrder(connectionString);
+                    inputValid = true;
                     break;
                 default:
                     MessageBox.Show("Input not valid.");
