@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView_items = new System.Windows.Forms.DataGridView();
             this.label_itemList = new System.Windows.Forms.Label();
             this.button_AddItem = new System.Windows.Forms.Button();
@@ -48,8 +48,8 @@
             this.dataGridView_items.AllowUserToDeleteRows = false;
             this.dataGridView_items.AllowUserToResizeColumns = false;
             this.dataGridView_items.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_items.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_items.Location = new System.Drawing.Point(12, 25);
@@ -120,9 +120,9 @@
             this.label_mealPrice.AutoSize = true;
             this.label_mealPrice.Location = new System.Drawing.Point(12, 251);
             this.label_mealPrice.Name = "label_mealPrice";
-            this.label_mealPrice.Size = new System.Drawing.Size(59, 13);
+            this.label_mealPrice.Size = new System.Drawing.Size(56, 13);
             this.label_mealPrice.TabIndex = 7;
-            this.label_mealPrice.Text = "Meal name";
+            this.label_mealPrice.Text = "Meal price";
             // 
             // textBox_mealPrice
             // 

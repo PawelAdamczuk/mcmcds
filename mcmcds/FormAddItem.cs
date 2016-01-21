@@ -54,15 +54,10 @@ namespace mcmcds
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                StringBuilder price = new StringBuilder(textBox_price.Text);
-                for(int i=0; i<price.Length; ++i){
-                    if (price[i] == '.')
-                        price[i] = ',';
-                }
                 
                 try
                 {
-                    int priceInt = (int)(Double.Parse(price.ToString())*100);
+                    int priceInt = Utilities.PriceField(textBox_price.Text);
                     conn.Open();
                     string command = "INSERT into ITEMS (name, price, description) " +
                                      $"VALUES ('{textBox_name.Text}', '{priceInt}', '{textBox_description.Text}');";
