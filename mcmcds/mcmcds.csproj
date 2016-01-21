@@ -70,6 +70,12 @@
     <Compile Include="FormAddMeal.Designer.cs">
       <DependentUpon>FormAddMeal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddOrder.Designer.cs">
+      <DependentUpon>FormAddOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormThickClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddMeal.resx">
       <DependentUpon>FormAddMeal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddOrder.resx">
+      <DependentUpon>FormAddOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThickClient.resx">
       <DependentUpon>FormThickClient.cs</DependentUpon>

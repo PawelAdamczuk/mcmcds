@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView_items = new System.Windows.Forms.DataGridView();
             this.label_itemList = new System.Windows.Forms.Label();
             this.button_AddItem = new System.Windows.Forms.Button();
@@ -48,8 +48,8 @@
             this.dataGridView_items.AllowUserToDeleteRows = false;
             this.dataGridView_items.AllowUserToResizeColumns = false;
             this.dataGridView_items.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_items.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_items.Location = new System.Drawing.Point(12, 25);
