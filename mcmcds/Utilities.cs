@@ -23,13 +23,13 @@ namespace mcmcds
             StringBuilder price = new StringBuilder(_input);
             for (int i = 0; i < price.Length; ++i)
             {
-                if (price[i] == '.')
-                    price[i] = ',';
+                if (price[i] == ',')
+                    price[i] = '.';
             }
 
             try
             {
-                int priceInt = (int)(double.Parse(price.ToString()) * 100);
+                int priceInt = (int)(double.Parse(price.ToString(), System.Globalization.CultureInfo.InvariantCulture) * 100);
                 return priceInt;
             }
             catch (System.Exception exception)
