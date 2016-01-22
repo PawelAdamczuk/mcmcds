@@ -15,17 +15,29 @@ namespace mcmcds
     public partial class FormThinClient : Form
     {
         public bool connected;
-        private SqlConnection conn;
         private string connectionString;
+        private int employeeId;
 
         public FormThinClient(string _address, string _login, string _password)
         {
-            connectionString = String.Format("Data Source={0},1433;Network Library = DBMSSOCN;Initial Catalog = DBANANA;User ID = {1}; Password = {2}", _address, _login, _password);
-            conn = new SqlConnection(connectionString);
+            //TODO change connection string, make account for employees
+            connectionString = String.Format("Data Source={0},1433;Network Library = DBMSSOCN;Initial Catalog = DBANANA;User ID = {1}; Password = {2}", _address, "sa", "bananek1");
+            
             try
             {
-                conn.Open();
-                //TODO user authentication using database credentials
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand com = new SqlCommand("SELECT dbo.getEmployeeId (@login, @passwordHash)", conn))
+                    {
+                        com.Parameters.Add("@login", SqlDbType.VarChar).Value = _login;
+                        //TODO Hash the password here.
+                        com.Parameters.Add("@passwordHash", SqlDbType.VarChar).Value = _password;
+                        //
+                        employeeId = int.Parse(com.ExecuteScalar().ToString());
+                    }
+                }
+                
                 connected = true;
 
             }
