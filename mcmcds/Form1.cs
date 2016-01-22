@@ -38,5 +38,12 @@ namespace mcmcds
         {
 
         }
+
+        private void thinClientLogin_Click(object sender, EventArgs e)
+        {
+            FormThinClient thinClient = new FormThinClient(comboBoxAddress.Text, textBoxUsername.Text, textBoxPassword.Text);
+            if (thinClient.connected)
+                thinClient.Show();
+        }
     }
 }

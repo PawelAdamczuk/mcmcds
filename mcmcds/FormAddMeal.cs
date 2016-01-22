@@ -127,7 +127,7 @@ namespace mcmcds
 
                         string command2 = "INSERT into MEALS_ITEMS (meal_id, item_id) " +
                                           $"VALUES ({mealId}, {itemId});";
-                        SqlCommand insertQuery2 = new SqlCommand(command, conn);
+                        SqlCommand insertQuery2 = new SqlCommand(command2, conn);
                         insertQuery2.Parameters.Add("@ID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
                         insertQuery2.ExecuteNonQuery();
                     }

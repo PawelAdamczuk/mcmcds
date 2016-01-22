@@ -49,6 +49,7 @@
             this.thinClientLogin.TabIndex = 0;
             this.thinClientLogin.Text = "Employee login";
             this.thinClientLogin.UseVisualStyleBackColor = true;
+            this.thinClientLogin.Click += new System.EventHandler(this.thinClientLogin_Click);
             // 
             // thickClientLogin
             // 
