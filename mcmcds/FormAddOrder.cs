@@ -17,9 +17,15 @@ namespace mcmcds
         private DataSet dsItems;
         private DataSet dsMeals;
         private int price;
-        public FormAddOrder(String connectionString)
+        private int employeeId;
+        private List<DataRow> selectedRowList;
+        private List<int> itemIdList; 
+        public FormAddOrder(String connectionString, int employeeId)
         {
             this.connectionString = connectionString;
+            this.employeeId = employeeId;
+            selectedRowList = new List<DataRow>();
+            itemIdList = new List<int>();
             InitializeComponent();
         }
 
@@ -51,6 +57,7 @@ namespace mcmcds
             String it = dataGridItems.SelectedRows[0].Cells["name"].Value.ToString();
             listView_mealItems.Items.Add(it);
             price += Utilities.PriceField(dataGridItems.SelectedRows[0].Cells["price"].Value.ToString());
+            itemIdList.Add(int.Parse(dataGridItems.SelectedRows[0].Cells["id"].Value.ToString()));
             textBox_calculatedPrice.Text = ((double)price/100).ToString();
         }
 
@@ -65,11 +72,58 @@ namespace mcmcds
                 foreach (DataRow row in itemSet.Tables[0].Rows)
                 {
                     listView_mealItems.Items.Add(row["name"].ToString());
+                    selectedRowList.Add(row);
                     price += Utilities.PriceField(row["price"].ToString());
                 }
             }
             price -= Utilities.PriceField(dataGridViewMeals.SelectedRows[0].Cells["discount"].Value.ToString());
             textBox_calculatedPrice.Text = ((double)price/100).ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (itemIdList.Count == 0 && selectedRowList.Count == 0)
+            {
+                MessageBox.Show("Order is empty.");
+                return;
+            }
+
+            string insertOrder = @"INSERT INTO ORDERS (price, employee_id) VALUES (@price, @employeeID)";
+            string insertItem = @"INSERT INTO ORDERS_ITEMS (order_id, item_id) VALUES ((SELECT TOP 1 id FROM ORDERS ORDER BY ORDERS.id DESC), @itemID)";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    using (SqlCommand command = new SqlCommand(insertOrder, conn, transaction))
+                    {
+                        command.Parameters.Add("@price", SqlDbType.Int).Value = price;
+                        command.Parameters.Add("@employeeID", SqlDbType.Int).Value = employeeId;
+                        command.ExecuteNonQuery();
+                        command.CommandText = insertItem;
+                        command.Parameters.Add("@itemID", SqlDbType.Int);
+                        foreach (DataRow row in selectedRowList)
+                        {
+                            command.Parameters["@itemID"].Value = row["item_id"].ToString();
+                            command.ExecuteNonQuery();
+                        }
+                        foreach (int id in itemIdList)
+                        {
+                            command.Parameters["@itemID"].Value = id;
+                            command.ExecuteNonQuery();
+                        }
+                        transaction.Commit();
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Error when adding order: " + exception.Message);
+                return;
+            }
+            MessageBox.Show("Order added");
+            this.Close();
         }
     }
 }

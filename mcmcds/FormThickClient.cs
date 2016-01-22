@@ -64,7 +64,7 @@ namespace mcmcds
                     inputValid = true;
                     break;
                 case "Order":
-                    f = new FormAddOrder(connectionString);
+                    f = new FormAddOrder(connectionString, 1);
                     inputValid = true;
                     break;
                 default:

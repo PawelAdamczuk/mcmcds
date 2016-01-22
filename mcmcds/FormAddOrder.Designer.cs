@@ -41,6 +41,7 @@
             this.dataGridViewMeals = new System.Windows.Forms.DataGridView();
             this.cancelButton = new System.Windows.Forms.Button();
             this.buttonAddMeal = new System.Windows.Forms.Button();
+            this.buttonAddOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMeals)).BeginInit();
             this.SuspendLayout();
@@ -147,7 +148,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(15, 426);
+            this.cancelButton.Location = new System.Drawing.Point(12, 426);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 22;
@@ -165,11 +166,22 @@
             this.buttonAddMeal.UseVisualStyleBackColor = true;
             this.buttonAddMeal.Click += new System.EventHandler(this.buttonAddMeal_Click);
             // 
+            // buttonAddOrder
+            // 
+            this.buttonAddOrder.Location = new System.Drawing.Point(497, 426);
+            this.buttonAddOrder.Name = "buttonAddOrder";
+            this.buttonAddOrder.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddOrder.TabIndex = 24;
+            this.buttonAddOrder.Text = "Add order";
+            this.buttonAddOrder.UseVisualStyleBackColor = true;
+            this.buttonAddOrder.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormAddOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.buttonAddOrder);
             this.Controls.Add(this.buttonAddMeal);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.dataGridViewMeals);
@@ -204,5 +216,6 @@
         private System.Windows.Forms.DataGridView dataGridViewMeals;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button buttonAddMeal;
+        private System.Windows.Forms.Button buttonAddOrder;
     }
 }
