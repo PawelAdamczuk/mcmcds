@@ -90,6 +90,7 @@ namespace mcmcds
 
             string insertOrder = @"INSERT INTO ORDERS (price, employee_id) VALUES (@price, @employeeID)";
             string insertItem = @"INSERT INTO ORDERS_ITEMS (order_id, item_id) VALUES ((SELECT TOP 1 id FROM ORDERS ORDER BY ORDERS.id DESC), @itemID)";
+            string updateItemCount = @"UPDATE ITEMS SET stock = (stock - 1) WHERE ITEMS.id = @itemID";
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -105,12 +106,18 @@ namespace mcmcds
                         command.Parameters.Add("@itemID", SqlDbType.Int);
                         foreach (DataRow row in selectedRowList)
                         {
+                            command.CommandText = insertItem;
                             command.Parameters["@itemID"].Value = row["item_id"].ToString();
+                            command.ExecuteNonQuery();
+                            command.CommandText = updateItemCount;
                             command.ExecuteNonQuery();
                         }
                         foreach (int id in itemIdList)
                         {
+                            command.CommandText = insertItem;
                             command.Parameters["@itemID"].Value = id;
+                            command.ExecuteNonQuery();
+                            command.CommandText = updateItemCount;
                             command.ExecuteNonQuery();
                         }
                         transaction.Commit();

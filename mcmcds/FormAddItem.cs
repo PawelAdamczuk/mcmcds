@@ -36,6 +36,8 @@ namespace mcmcds
                 return false;
             if (!Utilities.TextValid(textBox_description.Text))
                 return false;
+            if (!Utilities.TextValid(textBoxMaxStock.Text))
+                return false;
             return true;
         }
 
@@ -59,8 +61,8 @@ namespace mcmcds
                 {
                     int priceInt = Utilities.PriceField(textBox_price.Text);
                     conn.Open();
-                    string command = "INSERT into ITEMS (name, price, description) " +
-                                     $"VALUES ('{textBox_name.Text}', '{priceInt}', '{textBox_description.Text}');";
+                    string command = "INSERT into ITEMS (name, price, description, stock, max_stock) " +
+                                     $"VALUES ('{textBox_name.Text}', '{priceInt}', '{textBox_description.Text}', {textBoxMaxStock.Text}, {textBoxMaxStock.Text});";
                     SqlCommand insertQuery = new SqlCommand(command, conn);
                     insertQuery.ExecuteNonQuery();
                 }

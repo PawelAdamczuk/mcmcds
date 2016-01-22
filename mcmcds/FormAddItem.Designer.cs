@@ -36,6 +36,8 @@
             this.textBox_description = new System.Windows.Forms.TextBox();
             this.label_dollar = new System.Windows.Forms.Label();
             this.button_add = new System.Windows.Forms.Button();
+            this.textBoxMaxStock = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_name
@@ -107,11 +109,29 @@
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
             // 
+            // textBoxMaxStock
+            // 
+            this.textBoxMaxStock.Location = new System.Drawing.Point(198, 69);
+            this.textBoxMaxStock.Name = "textBoxMaxStock";
+            this.textBoxMaxStock.Size = new System.Drawing.Size(74, 20);
+            this.textBoxMaxStock.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(195, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Max stock";
+            // 
             // FormAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxMaxStock);
             this.Controls.Add(this.button_add);
             this.Controls.Add(this.label_dollar);
             this.Controls.Add(this.textBox_description);
@@ -138,5 +158,7 @@
         private System.Windows.Forms.TextBox textBox_description;
         private System.Windows.Forms.Label label_dollar;
         private System.Windows.Forms.Button button_add;
+        private System.Windows.Forms.TextBox textBoxMaxStock;
+        private System.Windows.Forms.Label label1;
     }
 }
