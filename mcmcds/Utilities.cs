@@ -1,9 +1,25 @@
 using System.Text;
+using System.Security.Cryptography;
 
 namespace mcmcds
 {
     public static class Utilities
     {
+        public static string StringHash(string _input)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(_input);
+            SHA256Managed crypt = new SHA256Managed();
+            byte[] hash = crypt.ComputeHash(bytes);
+            string output = string.Empty;
+
+            foreach (byte b in hash)
+            {
+                output += string.Format("{0:x2}", b);
+            }
+
+            return output;
+        }
+
         public static bool TextValid(string text)
         {
             if (text.Contains(";"))

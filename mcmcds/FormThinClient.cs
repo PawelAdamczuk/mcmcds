@@ -32,7 +32,7 @@ namespace mcmcds
                     {
                         com.Parameters.Add("@login", SqlDbType.VarChar).Value = _login;
                         //TODO Hash the password here.
-                        com.Parameters.Add("@passwordHash", SqlDbType.VarChar).Value = _password;
+                        com.Parameters.Add("@passwordHash", SqlDbType.VarChar).Value = Utilities.StringHash(_password);
                         //
                         employeeId = int.Parse(com.ExecuteScalar().ToString());
                     }

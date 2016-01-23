@@ -35,7 +35,7 @@ namespace mcmcds
             {
                 conn.Open();
                 string command = "INSERT into EMPLOYEES (name, wage, position, login, password_hash) " +
-                                 $"VALUES ('{NameBox.Text}', '{wageBox.Text}', '{positionBox.Text}', '{loginBox.Text}', '{passwordBox.Text.GetHashCode()}');";
+                                 $"VALUES ('{NameBox.Text}', '{wageBox.Text}', '{positionBox.Text}', '{loginBox.Text}', '{Utilities.StringHash(passwordBox.Text)}');";
                 SqlCommand insertQuery = new SqlCommand(command,conn);
                 try
                 {
