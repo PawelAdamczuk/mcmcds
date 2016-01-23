@@ -63,6 +63,7 @@ namespace mcmcds
                     conn.Open();
                     string command = "INSERT into ITEMS (name, price, description, stock, max_stock) " +
                                      $"VALUES ('{textBox_name.Text}', '{priceInt}', '{textBox_description.Text}', {textBoxMaxStock.Text}, {textBoxMaxStock.Text});";
+                    Utilities.appendToFile(command);
                     SqlCommand insertQuery = new SqlCommand(command, conn);
                     insertQuery.ExecuteNonQuery();
                 }

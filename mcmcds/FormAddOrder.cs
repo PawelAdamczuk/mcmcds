@@ -102,6 +102,7 @@ namespace mcmcds
                         command.Parameters.Add("@price", SqlDbType.Int).Value = price;
                         command.Parameters.Add("@employeeID", SqlDbType.Int).Value = employeeId;
                         command.ExecuteNonQuery();
+                        Utilities.appendToFile(command);
                         command.CommandText = insertItem;
                         command.Parameters.Add("@itemID", SqlDbType.Int);
                         foreach (DataRow row in selectedRowList)
@@ -109,16 +110,20 @@ namespace mcmcds
                             command.CommandText = insertItem;
                             command.Parameters["@itemID"].Value = row["item_id"].ToString();
                             command.ExecuteNonQuery();
+                            Utilities.appendToFile(command);
                             command.CommandText = updateItemCount;
                             command.ExecuteNonQuery();
+                            Utilities.appendToFile(command);
                         }
                         foreach (int id in itemIdList)
                         {
                             command.CommandText = insertItem;
                             command.Parameters["@itemID"].Value = id;
                             command.ExecuteNonQuery();
+                            Utilities.appendToFile(command);
                             command.CommandText = updateItemCount;
                             command.ExecuteNonQuery();
+                            Utilities.appendToFile(command);
                         }
                         transaction.Commit();
                     }

@@ -105,11 +105,12 @@ namespace mcmcds
                     int priceInt = Utilities.PriceField(textBox_mealPrice.Text);
                     conn.Open();
                     string command = "INSERT into MEALS (name, discount) " +
-                                     $"VALUES ('{textBox_mealName.Text}', '{(int)(priceSum*100)-priceInt}') SET @ID = SCOPE_IDENTITY();";
+                                     $"VALUES ('{textBox_mealName.Text}', '{(int)(priceSum)-priceInt}') SET @ID = SCOPE_IDENTITY();";
                     SqlCommand insertQuery = new SqlCommand(command, conn);
 
                     insertQuery.Parameters.Add("@ID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
                     insertQuery.ExecuteNonQuery();
+                    Utilities.appendToFile(insertQuery.CommandText);
 
                     int mealId = (int)insertQuery.Parameters["@ID"].Value;
 
@@ -130,9 +131,9 @@ namespace mcmcds
                         SqlCommand insertQuery2 = new SqlCommand(command2, conn);
                         insertQuery2.Parameters.Add("@ID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
                         insertQuery2.ExecuteNonQuery();
+                        Utilities.appendToFile(insertQuery2.CommandText);
                     }
-
-                    MessageBox.Show(mealId.ToString());
+                    
                 }
                 catch (Exception exception)
                 {

@@ -1,3 +1,6 @@
+using System;
+using System.Data.SqlClient;
+using System.IO;
 using System.Text;
 using System.Security.Cryptography;
 
@@ -52,6 +55,23 @@ namespace mcmcds
             {
                 throw exception;
             }
+        }
+
+        public static void appendToFile(string text)
+        {
+            var sw = File.AppendText("log.txt");
+            sw.Write(text+"\n");
+            sw.Close();
+        }
+
+        public static void appendToFile(SqlCommand comm)
+        {
+            string text = comm.CommandText;
+            foreach (SqlParameter p in comm.Parameters)
+            {
+                text = text.Replace(p.ParameterName, p.Value.ToString());
+            }
+            appendToFile(text);
         }
     }
 }

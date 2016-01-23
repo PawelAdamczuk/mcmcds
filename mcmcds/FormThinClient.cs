@@ -31,13 +31,17 @@ namespace mcmcds
                     using (SqlCommand com = new SqlCommand("SELECT dbo.getEmployeeId (@login, @passwordHash)", conn))
                     {
                         com.Parameters.Add("@login", SqlDbType.VarChar).Value = _login;
-                        //TODO Hash the password here.
                         com.Parameters.Add("@passwordHash", SqlDbType.VarChar).Value = Utilities.StringHash(_password);
-                        //
-                        employeeId = int.Parse(com.ExecuteScalar().ToString());
+                        string s = com.ExecuteScalar().ToString();
+                        if (s == "null")
+                        {
+                            MessageBox.Show("Login data invalid.");
+                            connected = false;
+                            return;
+                        }
+                        employeeId = int.Parse(s);
                     }
                 }
-                
                 connected = true;
 
             }
