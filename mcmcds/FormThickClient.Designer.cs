@@ -38,9 +38,21 @@
             this.dataGridItems = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tabMealStats = new System.Windows.Forms.TabPage();
+            this.tabItemStats = new System.Windows.Forms.TabPage();
+            this.tabEmployeeStats = new System.Windows.Forms.TabPage();
+            this.dataGridViewMealStats = new System.Windows.Forms.DataGridView();
+            this.dataGridViewItemStats = new System.Windows.Forms.DataGridView();
+            this.dataGridViewEmployeeStats = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItems)).BeginInit();
+            this.tabMealStats.SuspendLayout();
+            this.tabItemStats.SuspendLayout();
+            this.tabEmployeeStats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMealStats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItemStats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeeStats)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -49,6 +61,9 @@
             this.tabControl1.Controls.Add(this.tabAddItem);
             this.tabControl1.Controls.Add(this.tabAddMeal);
             this.tabControl1.Controls.Add(this.tabDelete);
+            this.tabControl1.Controls.Add(this.tabMealStats);
+            this.tabControl1.Controls.Add(this.tabItemStats);
+            this.tabControl1.Controls.Add(this.tabEmployeeStats);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -145,6 +160,66 @@
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             this.comboBox2.SelectionChangeCommitted += new System.EventHandler(this.comboBox2_SelectionChangeCommitted);
             // 
+            // tabMealStats
+            // 
+            this.tabMealStats.Controls.Add(this.dataGridViewMealStats);
+            this.tabMealStats.Location = new System.Drawing.Point(4, 22);
+            this.tabMealStats.Name = "tabMealStats";
+            this.tabMealStats.Size = new System.Drawing.Size(676, 369);
+            this.tabMealStats.TabIndex = 4;
+            this.tabMealStats.Text = "Meal Statistics";
+            this.tabMealStats.UseVisualStyleBackColor = true;
+            // 
+            // tabItemStats
+            // 
+            this.tabItemStats.Controls.Add(this.dataGridViewItemStats);
+            this.tabItemStats.Location = new System.Drawing.Point(4, 22);
+            this.tabItemStats.Name = "tabItemStats";
+            this.tabItemStats.Size = new System.Drawing.Size(676, 369);
+            this.tabItemStats.TabIndex = 5;
+            this.tabItemStats.Text = "Item Statistics";
+            this.tabItemStats.UseVisualStyleBackColor = true;
+            // 
+            // tabEmployeeStats
+            // 
+            this.tabEmployeeStats.Controls.Add(this.dataGridViewEmployeeStats);
+            this.tabEmployeeStats.Location = new System.Drawing.Point(4, 22);
+            this.tabEmployeeStats.Name = "tabEmployeeStats";
+            this.tabEmployeeStats.Size = new System.Drawing.Size(676, 369);
+            this.tabEmployeeStats.TabIndex = 6;
+            this.tabEmployeeStats.Text = "Employee Statistics";
+            this.tabEmployeeStats.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewMealStats
+            // 
+            this.dataGridViewMealStats.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridViewMealStats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMealStats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewMealStats.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewMealStats.Name = "dataGridViewMealStats";
+            this.dataGridViewMealStats.Size = new System.Drawing.Size(676, 369);
+            this.dataGridViewMealStats.TabIndex = 0;
+            // 
+            // dataGridViewItemStats
+            // 
+            this.dataGridViewItemStats.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridViewItemStats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewItemStats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewItemStats.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewItemStats.Name = "dataGridViewItemStats";
+            this.dataGridViewItemStats.Size = new System.Drawing.Size(676, 369);
+            this.dataGridViewItemStats.TabIndex = 1;
+            // 
+            // dataGridViewEmployeeStats
+            // 
+            this.dataGridViewEmployeeStats.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridViewEmployeeStats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEmployeeStats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewEmployeeStats.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewEmployeeStats.Name = "dataGridViewEmployeeStats";
+            this.dataGridViewEmployeeStats.Size = new System.Drawing.Size(676, 369);
+            this.dataGridViewEmployeeStats.TabIndex = 1;
+            // 
             // FormThickClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +232,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabDelete.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItems)).EndInit();
+            this.tabMealStats.ResumeLayout(false);
+            this.tabItemStats.ResumeLayout(false);
+            this.tabEmployeeStats.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMealStats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItemStats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployeeStats)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,5 +252,11 @@
         private System.Windows.Forms.DataGridView dataGridItems;
         private System.Windows.Forms.TabPage tabAddItem;
         private System.Windows.Forms.TabPage tabAddMeal;
+        private System.Windows.Forms.TabPage tabMealStats;
+        private System.Windows.Forms.DataGridView dataGridViewMealStats;
+        private System.Windows.Forms.TabPage tabItemStats;
+        private System.Windows.Forms.DataGridView dataGridViewItemStats;
+        private System.Windows.Forms.TabPage tabEmployeeStats;
+        private System.Windows.Forms.DataGridView dataGridViewEmployeeStats;
     }
 }

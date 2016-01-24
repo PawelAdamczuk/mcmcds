@@ -137,10 +137,21 @@ namespace mcmcds
                 catch (Exception exception)
                 {
                     MessageBox.Show("Error while inserting: " + exception.Message);
+                    reset();
                     return;
                 }
                 MessageBox.Show("Added item.");
+                reset();
             }
+        }
+
+        private void reset()
+        {
+            priceSum = 0;
+            textBox_calculatedPrice.Text = "";
+            textBox_mealName.Text = "";
+            textBox_mealPrice.Text = "";
+            listView_mealItems.Items.Clear();
         }
     }
 }
