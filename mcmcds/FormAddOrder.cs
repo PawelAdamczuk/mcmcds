@@ -49,7 +49,14 @@ namespace mcmcds
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            reset();
+        }
+
+        private void reset()
+        {
+            selectedRowList = new List<DataRow>();
+            itemIdList = new List<int>();
+            listView_mealItems.Items.Clear();
         }
 
         private void button_AddItem_Click(object sender, EventArgs e)
@@ -132,10 +139,11 @@ namespace mcmcds
             catch (Exception exception)
             {
                 MessageBox.Show("Error when adding order: " + exception.Message);
+                reset();
                 return;
             }
             MessageBox.Show("Order added");
-            this.Close();
+            reset();
         }
     }
 }

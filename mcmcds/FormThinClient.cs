@@ -60,7 +60,12 @@ namespace mcmcds
 
         private void FormThinClient_Load(object sender, EventArgs e)
         {
-
+            FormAddOrder embeddedAddOrder = new FormAddOrder(connectionString, employeeId);
+            embeddedAddOrder.TopLevel = false;
+            embeddedAddOrder.Visible = true;
+            embeddedAddOrder.Dock = DockStyle.Fill;
+            embeddedAddOrder.FormBorderStyle = FormBorderStyle.None;
+            tabControl_thinClientMain.TabPages[0].Controls.Add(embeddedAddOrder);
         }
 
         private void tabPage_mainControl_Click(object sender, EventArgs e)

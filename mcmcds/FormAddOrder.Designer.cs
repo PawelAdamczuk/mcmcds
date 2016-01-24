@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridItems = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.button_AddItem = new System.Windows.Forms.Button();
@@ -52,8 +52,8 @@
             this.dataGridItems.AllowUserToDeleteRows = false;
             this.dataGridItems.AllowUserToResizeColumns = false;
             this.dataGridItems.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridItems.Location = new System.Drawing.Point(12, 25);
@@ -134,8 +134,8 @@
             this.dataGridViewMeals.AllowUserToDeleteRows = false;
             this.dataGridViewMeals.AllowUserToResizeColumns = false;
             this.dataGridViewMeals.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMeals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMeals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewMeals.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewMeals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMeals.Location = new System.Drawing.Point(12, 210);
@@ -148,11 +148,11 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(12, 426);
+            this.cancelButton.Location = new System.Drawing.Point(399, 392);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 22;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.Text = "Clear";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
@@ -168,7 +168,7 @@
             // 
             // buttonAddOrder
             // 
-            this.buttonAddOrder.Location = new System.Drawing.Point(497, 426);
+            this.buttonAddOrder.Location = new System.Drawing.Point(489, 392);
             this.buttonAddOrder.Name = "buttonAddOrder";
             this.buttonAddOrder.Size = new System.Drawing.Size(75, 23);
             this.buttonAddOrder.TabIndex = 24;
@@ -180,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.ClientSize = new System.Drawing.Size(584, 437);
             this.Controls.Add(this.buttonAddOrder);
             this.Controls.Add(this.buttonAddMeal);
             this.Controls.Add(this.cancelButton);

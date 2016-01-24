@@ -29,14 +29,19 @@ namespace mcmcds
             {
                 conn.Open();
                 connected = true;
-
+                conn.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show("Connection failed!\n" + connectionString + "\n" + e.Message);
                 connected = false;
+                return;
             }
-
+            FormAddEmployee embEmployee = new FormAddEmployee(connectionString);
+            embEmployee.TopLevel = false;
+            embEmployee.Visible = true;
+            embEmployee.FormBorderStyle= FormBorderStyle.None;
+            embEmployee.Dock = DockStyle.None;
             InitializeComponent();
         }
 
@@ -45,38 +50,7 @@ namespace mcmcds
 
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            Form f = null;
-            bool inputValid = false;
-            switch (comboBox1.Text)
-            {
-                case "Employee":
-                    f = new FormAddEmployee(connectionString);
-                    inputValid = true;
-                    break;
-                case "Item":
-                    f = new FormAddItem(connectionString);
-                    inputValid = true;
-                    break;
-                case "Meal":
-                    f = new FormAddMeal(connectionString);
-                    inputValid = true;
-                    break;
-                case "Order":
-                    f = new FormAddOrder(connectionString, 3);
-                    inputValid = true;
-                    break;
-                default:
-                    MessageBox.Show("Input not valid.");
-                    break;
-            }
-            if (inputValid)
-            {
-                f.Show();
-            }
-        }
-
+        
         private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
         {
             RefreshDeleteGridView();
