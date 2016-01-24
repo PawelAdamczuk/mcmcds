@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridItems = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.button_AddItem = new System.Windows.Forms.Button();
@@ -52,9 +52,11 @@
             this.dataGridItems.AllowUserToDeleteRows = false;
             this.dataGridItems.AllowUserToResizeColumns = false;
             this.dataGridItems.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridItems.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridItems.Location = new System.Drawing.Point(12, 25);
             this.dataGridItems.MultiSelect = false;
@@ -134,9 +136,11 @@
             this.dataGridViewMeals.AllowUserToDeleteRows = false;
             this.dataGridViewMeals.AllowUserToResizeColumns = false;
             this.dataGridViewMeals.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMeals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMeals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewMeals.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewMeals.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridViewMeals.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewMeals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMeals.Location = new System.Drawing.Point(12, 210);
             this.dataGridViewMeals.MultiSelect = false;
@@ -180,6 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(584, 437);
             this.Controls.Add(this.buttonAddOrder);
             this.Controls.Add(this.buttonAddMeal);

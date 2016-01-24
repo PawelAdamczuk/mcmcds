@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThickClient));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAddEmployee = new System.Windows.Forms.TabPage();
+            this.tabAddItem = new System.Windows.Forms.TabPage();
+            this.tabAddMeal = new System.Windows.Forms.TabPage();
             this.tabDelete = new System.Windows.Forms.TabPage();
             this.dataGridItems = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.tabAddItem = new System.Windows.Forms.TabPage();
-            this.tabAddMeal = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItems)).BeginInit();
@@ -53,7 +53,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(574, 395);
+            this.tabControl1.Size = new System.Drawing.Size(684, 395);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.TabIndexChanged += new System.EventHandler(this.tabControl1_TabIndexChanged);
             // 
@@ -62,11 +62,29 @@
             this.tabAddEmployee.Location = new System.Drawing.Point(4, 22);
             this.tabAddEmployee.Name = "tabAddEmployee";
             this.tabAddEmployee.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAddEmployee.Size = new System.Drawing.Size(566, 369);
+            this.tabAddEmployee.Size = new System.Drawing.Size(676, 369);
             this.tabAddEmployee.TabIndex = 0;
             this.tabAddEmployee.Text = "Add Employee";
             this.tabAddEmployee.UseVisualStyleBackColor = true;
             this.tabAddEmployee.Click += new System.EventHandler(this.AddPage_Click);
+            // 
+            // tabAddItem
+            // 
+            this.tabAddItem.Location = new System.Drawing.Point(4, 22);
+            this.tabAddItem.Name = "tabAddItem";
+            this.tabAddItem.Size = new System.Drawing.Size(676, 369);
+            this.tabAddItem.TabIndex = 2;
+            this.tabAddItem.Text = "Add Item";
+            this.tabAddItem.UseVisualStyleBackColor = true;
+            // 
+            // tabAddMeal
+            // 
+            this.tabAddMeal.Location = new System.Drawing.Point(4, 22);
+            this.tabAddMeal.Name = "tabAddMeal";
+            this.tabAddMeal.Size = new System.Drawing.Size(676, 369);
+            this.tabAddMeal.TabIndex = 3;
+            this.tabAddMeal.Text = "Add Meal";
+            this.tabAddMeal.UseVisualStyleBackColor = true;
             // 
             // tabDelete
             // 
@@ -76,7 +94,7 @@
             this.tabDelete.Location = new System.Drawing.Point(4, 22);
             this.tabDelete.Name = "tabDelete";
             this.tabDelete.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDelete.Size = new System.Drawing.Size(566, 369);
+            this.tabDelete.Size = new System.Drawing.Size(676, 369);
             this.tabDelete.TabIndex = 1;
             this.tabDelete.Text = "Delete";
             this.tabDelete.UseVisualStyleBackColor = true;
@@ -90,18 +108,20 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridItems.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridItems.Location = new System.Drawing.Point(9, 35);
             this.dataGridItems.MultiSelect = false;
             this.dataGridItems.Name = "dataGridItems";
             this.dataGridItems.RowHeadersVisible = false;
             this.dataGridItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridItems.Size = new System.Drawing.Size(549, 326);
+            this.dataGridItems.Size = new System.Drawing.Size(659, 326);
             this.dataGridItems.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(483, 6);
+            this.button1.Location = new System.Drawing.Point(593, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -124,33 +144,15 @@
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             this.comboBox2.SelectionChangeCommitted += new System.EventHandler(this.comboBox2_SelectionChangeCommitted);
             // 
-            // tabAddItem
-            // 
-            this.tabAddItem.Location = new System.Drawing.Point(4, 22);
-            this.tabAddItem.Name = "tabAddItem";
-            this.tabAddItem.Size = new System.Drawing.Size(566, 369);
-            this.tabAddItem.TabIndex = 2;
-            this.tabAddItem.Text = "Add Item";
-            this.tabAddItem.UseVisualStyleBackColor = true;
-            // 
-            // tabAddMeal
-            // 
-            this.tabAddMeal.Location = new System.Drawing.Point(4, 22);
-            this.tabAddMeal.Name = "tabAddMeal";
-            this.tabAddMeal.Size = new System.Drawing.Size(566, 369);
-            this.tabAddMeal.TabIndex = 3;
-            this.tabAddMeal.Text = "Add Meal";
-            this.tabAddMeal.UseVisualStyleBackColor = true;
-            // 
             // FormThickClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 395);
+            this.ClientSize = new System.Drawing.Size(684, 395);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormThickClient";
-            this.Text = "FormThickClient";
+            this.Text = "Administration panel";
             this.tabControl1.ResumeLayout(false);
             this.tabDelete.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItems)).EndInit();

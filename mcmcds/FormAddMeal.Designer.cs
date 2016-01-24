@@ -56,6 +56,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_items.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_items.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridView_items.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_items.Location = new System.Drawing.Point(12, 25);
             this.dataGridView_items.MultiSelect = false;
@@ -196,6 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(684, 342);
             this.Controls.Add(this.button_addMeal);
             this.Controls.Add(this.label_pickedItems);

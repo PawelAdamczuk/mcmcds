@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
 
 
 namespace mcmcds
@@ -40,6 +42,12 @@ namespace mcmcds
                             return;
                         }
                         employeeId = int.Parse(s);
+
+                        string employeeNameCommandString = "SELECT name FROM EMPLOYEES WHERE id=" + s;
+                        SqlCommand employeeNameCommand = new SqlCommand(employeeNameCommandString, conn);
+                        string employeeName = employeeNameCommand.ExecuteScalar().ToString();
+
+                        this.Text = "Employee panel [" + employeeName + "]";
                     }
                 }
                 connected = true;
@@ -73,9 +81,61 @@ namespace mcmcds
 
         }
 
-        private void tabPage_pendingOrders_Click(object sender, EventArgs e)
-        {
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string orderID = dataGridView_pendingOrders.SelectedRows[0].Cells["Order ID"].Value.ToString();
+                    string command = "UPDATE ORDERS SET executed=1 WHERE id=" + orderID;
+
+                    SqlCommand update = new SqlCommand(command, conn);
+                    update.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM pendingOrders", conn);
+                    SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dataGridView_pendingOrders.DataSource = ds.Tables[0];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void tabPage_pendingOrders_Enter(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM pendingOrders", conn);
+                    SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dataGridView_pendingOrders.DataSource = ds.Tables[0];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }
