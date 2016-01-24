@@ -38,38 +38,7 @@ namespace mcmcds
                 return;
             }
             InitializeComponent();
-            RefreshDeleteGridView();
-            FormAddEmployee embEmployee = new FormAddEmployee(connectionString)
-            {
-                TopLevel = false,
-                Visible = true,
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill
-            };
-
-            tabControl1.TabPages[0].Controls.Clear();
-            tabControl1.TabPages[0].Controls.Add(embEmployee);
-
-            FormAddItem embItem = new FormAddItem((connectionString))
-            {
-                TopLevel = false,
-                Visible = true,
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill
-            };
-
-            tabControl1.TabPages[1].Controls.Clear();
-            tabControl1.TabPages[1].Controls.Add(embItem);
-
-            FormAddMeal embMeal = new FormAddMeal(connectionString)
-            {
-                TopLevel = false,
-                Visible = true,
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill
-            };
-            tabControl1.TabPages[2].Controls.Clear();
-            tabControl1.TabPages[2].Controls.Add(embMeal);
+            refresh();
         }
 
         private void AddPage_Click(object sender, EventArgs e)
@@ -128,6 +97,11 @@ namespace mcmcds
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
+            refresh();
+        }
+
+        private void refresh()
+        {
             RefreshDeleteGridView();
             FormAddEmployee embEmployee = new FormAddEmployee(connectionString)
             {
@@ -160,6 +134,23 @@ namespace mcmcds
             };
             tabControl1.TabPages[2].Controls.Clear();
             tabControl1.TabPages[2].Controls.Add(embMeal);
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlDataAdapter item = new SqlDataAdapter("SELECT * FROM itemStats",conn);
+                SqlDataAdapter meal = new SqlDataAdapter("SELECT * FROM mealStats", conn);
+                SqlDataAdapter empl = new SqlDataAdapter("SELECT * FROM employeeStats",conn);
+                DataSet itemSet = new DataSet();
+                DataSet mealSet = new DataSet();
+                DataSet emplSet = new DataSet();
+                item.Fill(itemSet);
+                meal.Fill(mealSet);
+                empl.Fill(emplSet);
+                dataGridViewEmployeeStats.DataSource = emplSet.Tables[0];
+                dataGridViewItemStats.DataSource = itemSet.Tables[0];
+                dataGridViewMealStats.DataSource = mealSet.Tables[0];
+            }
         }
     }
 }
