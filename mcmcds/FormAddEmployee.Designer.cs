@@ -44,7 +44,6 @@ namespace mcmcds
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.loginBox = new System.Windows.Forms.TextBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NameBox
@@ -137,22 +136,11 @@ namespace mcmcds
             this.passwordBox.Size = new System.Drawing.Size(260, 20);
             this.passwordBox.TabIndex = 11;
             // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(195, 227);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(77, 23);
-            this.cancelButton.TabIndex = 12;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
             // FormAddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.loginBox);
             this.Controls.Add(this.PasswordLabel);
@@ -185,6 +173,5 @@ namespace mcmcds
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.TextBox passwordBox;
-        private System.Windows.Forms.Button cancelButton;
     }
 }

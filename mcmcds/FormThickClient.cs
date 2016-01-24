@@ -37,12 +37,35 @@ namespace mcmcds
                 connected = false;
                 return;
             }
-            FormAddEmployee embEmployee = new FormAddEmployee(connectionString);
-            embEmployee.TopLevel = false;
-            embEmployee.Visible = true;
-            embEmployee.FormBorderStyle= FormBorderStyle.None;
-            embEmployee.Dock = DockStyle.None;
+            
+
             InitializeComponent();
+            FormAddEmployee embEmployee = new FormAddEmployee(connectionString)
+            {
+                TopLevel = false,
+                Visible = true,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
+            tabControl1.TabPages[0].Controls.Add(embEmployee);
+
+            FormAddItem embItem = new FormAddItem((connectionString))
+            {
+                TopLevel = false,
+                Visible = true,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
+            tabControl1.TabPages[1].Controls.Add(embItem);
+
+            FormAddMeal embMeal = new FormAddMeal(connectionString)
+            {
+                TopLevel = false,
+                Visible = true,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
+            tabControl1.TabPages[2].Controls.Add(embMeal);
         }
 
         private void AddPage_Click(object sender, EventArgs e)
