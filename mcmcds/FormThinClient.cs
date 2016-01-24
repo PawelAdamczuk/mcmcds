@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Runtime.Remoting.Messaging;
 
 
 
@@ -22,9 +24,8 @@ namespace mcmcds
 
         public FormThinClient(string _address, string _login, string _password)
         {
-            //TODO change connection string, make account for employees
-            connectionString = String.Format("Data Source={0},1433;Network Library = DBMSSOCN;Initial Catalog = DBANANA;User ID = {1}; Password = {2}", _address, "sa", "bananek1");
             
+            connectionString = String.Format("Data Source={0},1433;Network Library = DBMSSOCN;Initial Catalog = DBANANA;User ID = {1}; Password = {2}", _address, "sa", "bananek1");
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -51,7 +52,6 @@ namespace mcmcds
                     }
                 }
                 connected = true;
-
             }
             catch (Exception e)
             {
@@ -82,7 +82,7 @@ namespace mcmcds
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_markAsExecuted_Click(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -112,7 +112,7 @@ namespace mcmcds
                     dataGridView_pendingOrders.DataSource = ds.Tables[0];
                 }
                 catch (Exception ex)
-                {
+        {
                     MessageBox.Show(ex.Message);
                 }
             }
@@ -137,5 +137,41 @@ namespace mcmcds
                 }
             }
         }
+
+        private void button_printOrder_Click(object sender, EventArgs e)
+        {
+            string insertOrder = "INSERT INTO SUPPLY_ORDERS_ITEMS (item_id, supply_order_id, amount)" +
+                                 "VALUES (@itemId,(SELECT TOP 1 id FROM SUPPLY_ORDERS ORDER BY SUPPLY_ORDERS.id DESC), @amount);";
+            StringBuilder sb = new StringBuilder();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlTransaction transaction = conn.BeginTransaction())
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT id, (ITEMS.max_stock-ITEMS.stock) as amount, name FROM ITEMS WHERE ITEMS.stock<ITEMS.max_stock", conn);
+                    DataSet ds = new DataSet();
+                    da.SelectCommand.Transaction = transaction;
+                    da.Fill(ds);
+                    new SqlCommand("INSERT INTO SUPPLY_ORDERS DEFAULT VALUES",conn,transaction).ExecuteNonQuery();
+                    string date = new SqlCommand("SELECT TOP 1 date FROM SUPPLY_ORDERS ORDER BY id DESC",conn,transaction).ExecuteScalar().ToString();
+                    string orderId = new SqlCommand("SELECT TOP 1 id FROM SUPPLY_ORDERS ORDER BY id DESC", conn,transaction).ExecuteScalar().ToString();
+                    sb.AppendLine("OrderID: " + orderId);
+                    sb.AppendLine("Date: " + date);
+                    sb.AppendLine("------");
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        SqlCommand com = new SqlCommand(insertOrder,conn,transaction);
+                        com.Parameters.AddWithValue("@itemId", int.Parse(row["id"].ToString()));
+                        com.Parameters.AddWithValue("@amount", int.Parse(row["amount"].ToString()));
+                        com.ExecuteNonQuery();
+                        sb.AppendLine($"{row["name"].ToString()}:\t{row["amount"].ToString()}");
+                    }
+                    new SqlCommand("EXECUTE resupply", conn, transaction).ExecuteNonQuery();
+                    transaction.Commit();
+                }
+            }
+            textBox_printedOrder.Text = sb.ToString();
+        }
+        
     }
 }

@@ -57,6 +57,8 @@ namespace mcmcds
             selectedRowList = new List<DataRow>();
             itemIdList = new List<int>();
             listView_mealItems.Items.Clear();
+            price = 0;
+            textBox_calculatedPrice.Text = "";
         }
 
         private void button_AddItem_Click(object sender, EventArgs e)

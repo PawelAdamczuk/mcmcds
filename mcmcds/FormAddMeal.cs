@@ -84,7 +84,6 @@ namespace mcmcds
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Baka...");
                 MessageBox.Show("There's nothing to delete.");
             }
         }

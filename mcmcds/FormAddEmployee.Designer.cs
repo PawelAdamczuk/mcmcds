@@ -82,7 +82,7 @@ namespace mcmcds
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(12, 227);
+            this.addButton.Location = new System.Drawing.Point(195, 207);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(77, 23);
             this.addButton.TabIndex = 5;
