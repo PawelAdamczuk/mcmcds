@@ -9,8 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using System.Runtime.Remoting.Messaging;
+using System.Media;
 
 
 
@@ -49,6 +49,14 @@ namespace mcmcds
                         string employeeName = employeeNameCommand.ExecuteScalar().ToString();
 
                         this.Text = "Employee panel [" + employeeName + "]";
+
+                        if(employeeName.Equals("JOHN CENA"))
+                        {
+                            SoundPlayer player = new SoundPlayer();
+                            player.SoundLocation = "qre.wav";
+                            player.Play();
+                            this.Text = "Employee panel [AND HIS NAME IS... " + employeeName + "!]";
+                        }
                     }
                 }
                 connected = true;
