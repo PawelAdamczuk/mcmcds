@@ -72,5 +72,10 @@ namespace mcmcds
         {
 
         }
+
+        private void tabPage_pendingOrders_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
