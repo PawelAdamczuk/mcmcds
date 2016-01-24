@@ -109,7 +109,7 @@ namespace mcmcds
                     transaction.Commit();
                 }
             }
-            textBox1.Text = sb.ToString();
+            textBox_printedOrder.Text = sb.ToString();
         }
         
     }

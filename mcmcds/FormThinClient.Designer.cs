@@ -33,8 +33,8 @@
             this.tabPage_pendingOrders = new System.Windows.Forms.TabPage();
             this.button_updateStockInfo = new System.Windows.Forms.Button();
             this.tabSupply = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBox_printedOrder = new System.Windows.Forms.TextBox();
+            this.button_printOrder = new System.Windows.Forms.Button();
             this.tabControl_thinClientMain.SuspendLayout();
             this.tabSupply.SuspendLayout();
             this.SuspendLayout();
@@ -84,8 +84,8 @@
             // 
             // tabSupply
             // 
-            this.tabSupply.Controls.Add(this.button1);
-            this.tabSupply.Controls.Add(this.textBox1);
+            this.tabSupply.Controls.Add(this.button_printOrder);
+            this.tabSupply.Controls.Add(this.textBox_printedOrder);
             this.tabSupply.Location = new System.Drawing.Point(4, 22);
             this.tabSupply.Name = "tabSupply";
             this.tabSupply.Size = new System.Drawing.Size(576, 436);
@@ -93,25 +93,25 @@
             this.tabSupply.Text = "Supply orders";
             this.tabSupply.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBox_printedOrder
             // 
-            this.textBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.textBox1.Location = new System.Drawing.Point(8, 12);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(479, 416);
-            this.textBox1.TabIndex = 0;
+            this.textBox_printedOrder.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.textBox_printedOrder.Location = new System.Drawing.Point(8, 12);
+            this.textBox_printedOrder.Multiline = true;
+            this.textBox_printedOrder.Name = "textBox_printedOrder";
+            this.textBox_printedOrder.ReadOnly = true;
+            this.textBox_printedOrder.Size = new System.Drawing.Size(479, 416);
+            this.textBox_printedOrder.TabIndex = 0;
             // 
-            // button1
+            // button_printOrder
             // 
-            this.button1.Location = new System.Drawing.Point(493, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Print Order";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_printOrder.Location = new System.Drawing.Point(493, 12);
+            this.button_printOrder.Name = "button_printOrder";
+            this.button_printOrder.Size = new System.Drawing.Size(75, 23);
+            this.button_printOrder.TabIndex = 1;
+            this.button_printOrder.Text = "Print Order";
+            this.button_printOrder.UseVisualStyleBackColor = true;
+            this.button_printOrder.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormThinClient
             // 
@@ -136,7 +136,7 @@
         private System.Windows.Forms.TabPage tabPage_pendingOrders;
         private System.Windows.Forms.Button button_updateStockInfo;
         private System.Windows.Forms.TabPage tabSupply;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button_printOrder;
+        private System.Windows.Forms.TextBox textBox_printedOrder;
     }
 }
