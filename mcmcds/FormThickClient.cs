@@ -37,9 +37,8 @@ namespace mcmcds
                 connected = false;
                 return;
             }
-            
-
             InitializeComponent();
+            RefreshDeleteGridView();
             FormAddEmployee embEmployee = new FormAddEmployee(connectionString)
             {
                 TopLevel = false,
@@ -47,6 +46,8 @@ namespace mcmcds
                 FormBorderStyle = FormBorderStyle.None,
                 Dock = DockStyle.Fill
             };
+
+            tabControl1.TabPages[0].Controls.Clear();
             tabControl1.TabPages[0].Controls.Add(embEmployee);
 
             FormAddItem embItem = new FormAddItem((connectionString))
@@ -56,6 +57,8 @@ namespace mcmcds
                 FormBorderStyle = FormBorderStyle.None,
                 Dock = DockStyle.Fill
             };
+
+            tabControl1.TabPages[1].Controls.Clear();
             tabControl1.TabPages[1].Controls.Add(embItem);
 
             FormAddMeal embMeal = new FormAddMeal(connectionString)
@@ -65,6 +68,7 @@ namespace mcmcds
                 FormBorderStyle = FormBorderStyle.None,
                 Dock = DockStyle.Fill
             };
+            tabControl1.TabPages[2].Controls.Clear();
             tabControl1.TabPages[2].Controls.Add(embMeal);
         }
 
@@ -73,7 +77,7 @@ namespace mcmcds
 
         }
 
-        
+
         private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
         {
             RefreshDeleteGridView();
@@ -119,7 +123,43 @@ namespace mcmcds
 
         private void tabControl1_TabIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
             RefreshDeleteGridView();
+            FormAddEmployee embEmployee = new FormAddEmployee(connectionString)
+            {
+                TopLevel = false,
+                Visible = true,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
+
+            tabControl1.TabPages[0].Controls.Clear();
+            tabControl1.TabPages[0].Controls.Add(embEmployee);
+
+            FormAddItem embItem = new FormAddItem((connectionString))
+            {
+                TopLevel = false,
+                Visible = true,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
+
+            tabControl1.TabPages[1].Controls.Clear();
+            tabControl1.TabPages[1].Controls.Add(embItem);
+
+            FormAddMeal embMeal = new FormAddMeal(connectionString)
+            {
+                TopLevel = false,
+                Visible = true,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
+            tabControl1.TabPages[2].Controls.Clear();
+            tabControl1.TabPages[2].Controls.Add(embMeal);
         }
     }
 }
